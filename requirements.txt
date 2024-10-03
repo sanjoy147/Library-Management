@@ -9,6 +9,6 @@ django-filter==23.1
 PyJWT==2.6.0  # Required for JWT authentication
 psycopg2-binary==2.9.6
 psycopg2==2.9.6
-
+djangorestframework-simplejwt>=5.0.0,<6.0.0
 
 
