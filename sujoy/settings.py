@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-mb7j-w6hw(6w%e(ccihor#)ysj#r$w86o@gr8od4pgup)x5*j#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = "library-management-wyx6.onrender.com"
+# ALLOWED_HOSTS = "library-management-wyx6.onrender.com"
+# settings.py
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'library-management-wyx6.onrender.com']
 
 
 # Application definition
