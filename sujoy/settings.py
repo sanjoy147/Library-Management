@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,16 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mb7j-w6hw(6w%e(ccihor#)ysj#r$w86o@gr8od4pgup)x5*j#'
-
+# SECRET_KEY = 'django-insecure-mb7j-w6hw(6w%e(ccihor#)ysj#r$w86o@gr8od4pgup)x5*j#'
+SECRET_KEY =os.environ.get("SECRET_KEY","django-insecure-mb7j-w6hw(6w%e(ccihor#)ysj#r$w86o@gr8od4pgup)x5*j#")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower()=="true"
 
-# ALLOWED_HOSTS = "library-management-wyx6.onrender.com"
-# settings.py
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'library-management-wyx6.onrender.com']
-
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(" ")
+if not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -103,10 +103,9 @@ DATABASES = {
         'PASSWORD':'sujoy147'
     }
 }
-import dj_database_url
-import os
 
-DATABASES['default']=dj_database_url.parse("postgresql://library_management_o09p_user:VOjZ2AuYHbmIn49hw6AeexisE6wl1cAk@dpg-crvcp6a3esus73e6ol20-a.singapore-postgres.render.com/library_management_o09p")
+database_url="postgresql://library_management_o09p_user:VOjZ2AuYHbmIn49hw6AeexisE6wl1cAk@dpg-crvcp6a3esus73e6ol20-a.singapore-postgres.render.com/library_management_o09p"
+DATABASES['default']=dj_database_url.parse(database_url)
 # postgresql://library_management_o09p_user:VOjZ2AuYHbmIn49hw6AeexisE6wl1cAk@dpg-crvcp6a3esus73e6ol20-a.singapore-postgres.render.com/library_management_o09p
 
 # Password validation
