@@ -2,7 +2,7 @@ Django==5.0.2
 mysqlclient==2.1.1
 dj-database-url==0.5.0
 djangorestframework==3.14.0
-djoser==<newer_version>  
+djoser==2.2.2  
 django-cors-headers==3.13.0
 django-debug-toolbar==4.0.0
 django-filter==23.1
