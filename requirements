@@ -1,9 +1,0 @@
-Django==5.0.2
-mysqlclient==2.1.1  # For MySQL database
-dj-database-url==0.5.0
-djangorestframework==3.14.0
-djoser==2.1.0
-django-cors-headers==3.13.0
-django-debug-toolbar==4.0.0
-django-filter==23.1
-PyJWT==2.6.0  # Required for JWT authentication
